@@ -1,0 +1,20 @@
+### OS ###
+
+# osx
+.DS_Store
+
+
+### IDE ###
+
+# intelliJ
+.idea/
+*.iml
+mvnw.cmd
+mvnw
+
+target/
+
+# maven versions:update-version artifacts
+pom.xml.versionsBackup
+
+application-local*
