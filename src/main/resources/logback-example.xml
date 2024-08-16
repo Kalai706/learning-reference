@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+<!--    &lt;!&ndash; use Spring default values and console appender &ndash;&gt;-->
+<!--    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>-->
+<!--    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />-->
+    <include resource="org/springframework/boot/logging/logback/base.xml" />
+
+    <springProperty name="log_file_path" source="logging.file.path"/>
+    <springProperty name="log_file_name" source="logging.file.name"/>
+
+<!--    &lt;!&ndash; Log appender for application log file in logstash json format &ndash;&gt;-->
+    <appender name="rollingfile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log_file_path}/${log_file_name}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log_file_name}.%d{yyyy-MM-dd}</fileNamePattern>
+<!--            <maxHistory>7</maxHistory>-->
+<!--            <totalSizeCap>3GB</totalSizeCap>-->
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+<!--        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>-->
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <customFields>
+                {
+                "tags":"kalai"
+                }
+            </customFields>
+        </encoder>
+    </appender>
+
+    <!--    &lt;!&ndash; Log appender for application log Uniquely named files (by timestamp) &ndash;&gt;-->
+    <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss"/>
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>log-${bySecond}.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%-5level %logger{35} -%kvp- %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- display the log in console -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.err</target>
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} -%kvp- %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- display the log in console -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} -%kvp- %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Log all application logging to console and file -->
+    <root level="INFO" >
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+        <appender-ref ref="rollingfile" />
+    </root>
+</configuration>

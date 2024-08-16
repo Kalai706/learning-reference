@@ -8,3 +8,19 @@ management:
     web:
       exposure:
         include: "info"
+logging:
+  level:
+    root: INFO
+
+---
+# Logback example running locally
+spring:
+  config:
+    activate:
+      on-profile: logback-local
+logging:
+  config: classpath:logback-example.xml
+  file:
+    name: rollingApp.log
+    path: ./logcheck
+
