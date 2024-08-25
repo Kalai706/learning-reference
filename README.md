@@ -13,6 +13,7 @@ for more configuration details
 1. lambda customizer
 2. [Builder design patter ?](https://medium.com/javarevisited/builder-design-pattern-in-java-3b3bfee438d9)
 3. classpath ?
+4. JAXWS vs JAXB
 
 
 ## Random thoughts
@@ -24,6 +25,6 @@ for more configuration details
 6. Kubernetes
 8.   @ArchTest annotation
 9. How to run the application in to port ?
-10. Soap
+10. Consuming a SOAP web service - Top down, bottom-up  Ref: https://github.com/eugenp/tutorials/blob/master/maven-modules/maven-plugins/jaxws/pom.xml
 11. java 17 sealed class
-
+12. Maven plugins - refer the other project and parent pom for more plugins option

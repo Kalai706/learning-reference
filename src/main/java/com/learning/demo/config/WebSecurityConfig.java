@@ -35,6 +35,7 @@ public class WebSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/actuator/**").permitAll()
+                        .requestMatchers("/hello").permitAll()
 //                        .requestMatchers("/").permitAll()
                         .anyRequest().authenticated())
                   .httpBasic(Customizer.withDefaults())
