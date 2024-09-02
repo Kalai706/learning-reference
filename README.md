@@ -28,3 +28,4 @@ for more configuration details
 10. Consuming a SOAP web service - Top down, bottom-up  Ref: https://github.com/eugenp/tutorials/blob/master/maven-modules/maven-plugins/jaxws/pom.xml
 11. java 17 sealed class
 12. Maven plugins - refer the other project and parent pom for more plugins option
+13. FeignClient vs. WebClient vs resttemplate
