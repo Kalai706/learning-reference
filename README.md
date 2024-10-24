@@ -23,9 +23,12 @@ for more configuration details
 4. OAuth2 
 5. Elastic search
 6. Kubernetes
-8.   @ArchTest annotation
-9. How to run the application in to port ?
+8.   @ArchTest annotation Advance - package and method check
+9. How to run the application in two different port ?
 10. Consuming a SOAP web service - Top down, bottom-up  Ref: https://github.com/eugenp/tutorials/blob/master/maven-modules/maven-plugins/jaxws/pom.xml
 11. java 17 sealed class
 12. Maven plugins - refer the other project and parent pom for more plugins option
 13. FeignClient vs. WebClient vs resttemplate
+14. Log every request https://github.com/eugenp/tutorials/blob/master/spring-web-modules/spring-resttemplate/src/main/java/com/baeldung/resttemplate/configuration/CustomClientHttpRequestInterceptor.java
+15. consume the response with single object and json array. 
+16. @JsonIgnoreProperties(ignoreUnknown = true)
