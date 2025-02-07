@@ -52,6 +52,11 @@
         </encoder>
     </appender>
 
+    <logger name="org.zalando.logbook" level="INFO" additivity="false">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="file"/>
+    </logger>
+
     <!-- Log all application logging to console and file -->
     <root level="INFO" >
         <appender-ref ref="CONSOLE" />

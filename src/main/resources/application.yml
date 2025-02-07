@@ -10,8 +10,13 @@ management:
         include: "info"
 logging:
   level:
+    org.zalando.logbook: TRACE
     root: INFO
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}) %clr(%5p) %clr([traceid=%X{traceId:-} spanid=%X{spanId:-} ]){green} ${PID:-} --- [%-15.15thread] %-40.40logger{39} : %replace(%msg %rEx{10}){'[\r\n]+', '\u2028'}%nopex%n"
 
+server:
+  port: 6001
 ---
 # Logback example running locally
 spring:
